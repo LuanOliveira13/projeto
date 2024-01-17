@@ -33,7 +33,7 @@ class Cliente:
             else:
                 print("Erro ao realizar a venda.")
         else:
-            print("Saldo insuficiente.")
+            print("Produto não encontrado.")
             
 # O método 'vender_produto' permite que o cliente venda um produto.
 # Ele primeiro verifica se o produto está no estoque,
@@ -167,12 +167,20 @@ class Estoque:
 # e se a quantidade do produto é suficiente para a venda.
 
 # Exemplo de uso
-cliente = Cliente("João")
-cliente.conta.depositar(500)
+cliente = Cliente(input("Insira seu nome: "))
+cliente.conta.depositar(1000)
 cliente.adicionar_produto(Produto("Lápis", 50, 10))
 cliente.adicionar_produto(Produto("Caderno", 20.0, 5))
-cliente.comprar_produto("Criptomoeda", 20.0, 5)
-cliente.comprar_produto("Criptomoeda", 20.0, 6)
-cliente.vender_produto("Lápis", 10)
+cliente.comprar_produto("Bola", 80.0, 1)
+cliente.comprar_produto("Tenis", 250.0, 2)
+cliente.vender_produto("Tenis", 1)
 cliente.conta.mostra_saldo()
 cliente.estoque.exibir_estoque()
+
+cliente2 = Cliente("Leticia")
+cliente2.conta.depositar(100)
+cliente2.comprar_produto("Gatorade", 2.50, 5)
+cliente2.comprar_produto("Coca-Cola", 12, 10)
+cliente2.vender_produto("Lápis", 10)
+cliente2.conta.mostra_saldo()
+cliente2.estoque.exibir_estoque()
